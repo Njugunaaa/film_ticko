@@ -1,19 +1,57 @@
 body {
   font-family: Arial, sans-serif;
   margin: 0;
-  padding: 20px;
+  padding: 0;
   background-color: bisque;
   display: flex;
-  gap: 20px;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+#title-section {
+  width: 100%;
+  padding: 20px;
+  background: #692222;
+  color: white;
+  text-align: center;
+}
+
+#title-section h1 {
+  margin: 0;
+  font-size: 32px;
+}
+
+#title-section p {
+  margin-top: 5px;
+  font-size: 18px;
+  opacity: 0.8;
+}
+
+
+#container {
+  display: flex;
+  width: 90%;
+  height: 90vh;
+}
+
+#sidebar {
+  width: 25%;
+  background: url(./329755-1920x1080-desktop-full-hd-mad-max-fury-road-wallpaper-photo.jpg);
+  padding: 15px;
+  border-radius: 8px;
+  height: 100%;
+  overflow-y: auto;
+}
+
+h2 {
+  text-align: center;
+  font-size: 20px;
 }
 
 #movies {
-  width: 25%;
-  background: white;
-  padding: 15px;
-  border-radius: 8px;
-  height: 90vh;
-  overflow-y: auto;
+  list-style: none;
+  padding: 0;
 }
 
 .movie-item {
@@ -26,15 +64,31 @@ body {
 }
 
 .movie-item:hover {
-  background: darkgray;
+  background: transparent;
 }
 
-#my-movie-details {
-  width: 70%;
+#home-screen {
+  width: 75%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  color: white;
+  text-align: center;
+  background: url("./329695-1920x1200-desktop-hd-mad-max-fury-road-background-photo.jpg") no-repeat center center;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+
+#movie-details {
+  width: 75%;
   background: white;
   padding: 20px;
   border-radius: 10px;
-  display: flex;
+  display: none;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -49,7 +103,7 @@ body {
 
 button {
   padding: 10px;
-  background: green;
+  background: rgb(114, 14, 1);
   color: white;
   border: none;
   border-radius: 5px;
@@ -58,4 +112,8 @@ button {
 
 button:hover {
   background: darkgreen;
+}
+
+.hidden {
+  display: none;
 }

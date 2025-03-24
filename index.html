@@ -3,19 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./style.css">
-  <title>Movie Bookings</title>
+  <title>Movie Ticket Booking</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div id="movies"></div>
+  <div id="title-section">
+    <h1>Welcome to Movie Bookings</h1>
+    <p>Select a movie from the list to see details and book tickets.</p>
+  </div>
+  <div id="container">
+    <aside id="sidebar">
+      
+      <ul id="movies"></ul>
+    </aside>
 
-  <div id="my-movie-details">
-    <img id="movie-poster" src="" alt="Movie Poster">
-    <h2 id="movie-title"></h2>
-    <p id="movie-details"></p>
-    <button id="buy-ticket-button">Buy Ticket</button>
+    <div id="home-screen">
+      <h1>Welcome to Movie Booking</h1>
+    </div>
+
+    <div id="movie-details" class="hidden">
+      <button id="close-button">X</button>
+      <img id="movie-poster" src="" alt="Movie Poster">
+      <h2 id="movie-title"></h2>
+      <p id="movie-description"></p>
+      <p><strong>Showtime:</strong> <span id="showtime"></span></p>
+      <p><strong>Seats Left:</strong> <span id="seats-left"></span></p>
+      <button id="buy-ticket-button">Buy Ticket</button>
+    </div>
   </div>
 
-  <script src="./script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>

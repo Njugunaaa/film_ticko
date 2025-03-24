@@ -1,31 +1,32 @@
 document.addEventListener("DOMContentLoaded", () => {
   const moviesContainer = document.querySelector("#movies");
-  const movieDetailsContainer = document.querySelector("#my-movie-details");
+  const movieDetailsContainer = document.querySelector("#movie-details");
+  const homeScreen = document.querySelector("#home-screen");
   const moviePoster = document.querySelector("#movie-poster");
   const movieTitle = document.querySelector("#movie-title");
-  const movieDetails = document.querySelector("#movie-details");
+  const movieDescription = document.querySelector("#movie-description");
+  const showtime = document.querySelector("#showtime");
+  const seatsLeft = document.querySelector("#seats-left");
   const buyTicketButton = document.querySelector("#buy-ticket-button");
-
-  let currentMovie = null;
+  const closeButton = document.querySelector("#close-button");
 
   fetch("http://localhost:3000/films")
     .then(res => res.json())
     .then(data => {
       data.forEach(movie => {
-        const movieItem = document.createElement("div");
+        const movieItem = document.createElement("li");
         movieItem.classList.add("movie-item");
         movieItem.textContent = movie.title;
 
         movieItem.addEventListener("click", () => {
-          currentMovie = movie;
+          homeScreen.style.display = "none";
+          movieDetailsContainer.style.display = "flex";
           moviePoster.src = movie.poster;
           moviePoster.alt = movie.title;
           movieTitle.textContent = movie.title;
-          movieDetails.innerHTML = `
-              <p>${movie.description}</p>
-              <p>Showtime: ${movie.showtime}</p>
-              <p>Seats Left: <span id="modal-seats">${movie.capacity - movie.tickets_sold}</span></p>
-          `;
+          movieDescription.textContent = movie.description;
+          showtime.textContent = movie.showtime;
+          seatsLeft.textContent = movie.capacity - movie.tickets_sold;
         });
 
         moviesContainer.appendChild(movieItem);
@@ -33,9 +34,16 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
   buyTicketButton.addEventListener("click", () => {
-    if (currentMovie && currentMovie.capacity - currentMovie.tickets_sold > 0) {
-      currentMovie.tickets_sold += 1;
-      document.querySelector("#modal-seats").textContent = currentMovie.capacity - currentMovie.tickets_sold;
+    let seats = parseInt(seatsLeft.textContent);
+    if (seats > 0) {
+      seatsLeft.textContent = seats - 1;
+    } else {
+      alert("Tickets are sold out.");
     }
+  });
+
+  closeButton.addEventListener("click", () => {
+    movieDetailsContainer.style.display = "none";
+    homeScreen.style.display = "flex";
   });
 });
