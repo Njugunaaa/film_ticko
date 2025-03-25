@@ -37,7 +37,7 @@ body {
 
 #sidebar {
   width: 25%;
-  background: url(./329755-1920x1080-desktop-full-hd-mad-max-fury-road-wallpaper-photo.jpg);
+  background: url(./Furiosa.jpeg);
   padding: 15px;
   border-radius: 8px;
   height: 100%;
@@ -57,14 +57,14 @@ h2 {
 .movie-item {
   padding: 10px;
   margin: 5px 0;
-  background: lightgray;
+  background-color: rgb(146, 145, 145);
   cursor: pointer;
   border-radius: 5px;
   text-align: left;
 }
 
 .movie-item:hover {
-  background: transparent;
+  background-color: bisque;
 }
 
 #home-screen {
@@ -112,8 +112,4 @@ button {
 
 button:hover {
   background: darkgreen;
-}
-
-.hidden {
-  display: none;
 }
